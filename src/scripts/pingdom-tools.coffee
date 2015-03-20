@@ -8,12 +8,8 @@
 #   none
 #
 # Commands:
-#   hubot pingdom checks - returns summary of all checks pingdom currently monitoring
-#   hubot pingdom alerts - returns list of most recent 10 alerts generated
-#   hubot start watching pingdom - starts hubot periodically checking pingdom to see if any checks are down
-#   hubot pingdom start - starts hubot periodically checking pingdom to see if any checks are down
-#   hubot stop watching pingdom - stops hubot periodically checking pingdom
-#   hubot pingdom stop - stops hubot periodically checking pingdom
+#   hubot is github.com (fast|slow)?
+#   hubot (pagetest|fpt) github.com
 
 class PingdomTools
 
