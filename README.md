@@ -22,7 +22,7 @@ Pingdom have API endpoints for this service but it's not clear whether they expe
 
 ## Example interactions
 
-Ask Hubot to initiate a Full Page Report on a site.
+Ask Hubot to initiate a Full Page Report on a site. Hubot will poll Pingdom and reply when the report is prepared.
 
 ```
 Chris> hubot is github.com fast?
