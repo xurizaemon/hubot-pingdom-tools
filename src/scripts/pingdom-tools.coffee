@@ -38,7 +38,11 @@ class PingdomTools
                             "/#{msg.match[1]}"
                           replies.push "Full page report: #{url}"
                         if result.pagespeed_score and result.load_time_percentile
-                          replies.push "Pagespeed score #{result.pagespeed_score}, faster than #{result.load_time_percentile}% of sites."
+                          if result.load_time_percentile >= 50
+                            replies.push "Pagespeed score #{result.pagespeed_score}, faster than #{result.load_time_percentile}% of sites."
+                          else
+                            slower_than = -result.load_time_percentile + 100
+                            replies.push "Pagespeed score #{result.pagespeed_score}, slower than #{slower_than}% of sites."
                         if result.page_bytes and result.page_load_time
                           replies.push "#{result.page_bytes} bytes in #{result.page_load_time} ms."
                         if replies.length
