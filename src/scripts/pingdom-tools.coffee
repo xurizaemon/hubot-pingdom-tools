@@ -30,7 +30,7 @@ class PingdomTools
                   .get() (err, res, poll_body) ->
                     if poll_body
                       poll_res = JSON.parse poll_body
-                      if poll_res.state == 'completed' and poll_res.results
+                      if poll_res and poll_res.results and poll_res.state == 'completed'
                         result = poll_res.results
                         replies = []
                         if result.report_url
