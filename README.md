@@ -6,7 +6,7 @@ Pingdom Tools for Hubot
 
 In your hubot repository, run:
 
-`npm install hubot-pingdom-tools --save`
+`npm install git+https://git@github.com/xurizaemon/hubot-pingdom-tools --save`
 
 Then add **hubot-pingdom-tools** to your `external-scripts.json`:
 
