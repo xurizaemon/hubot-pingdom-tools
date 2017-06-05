@@ -8,8 +8,8 @@
 #   none
 #
 # Commands:
-#   hubot is github.com (fast|slow)?
-#   hubot (pagetest|fpt) github.com
+#   hubot is <domain> (fast|slow)? - Request a Pingdom pagetest report on <domain>
+#   hubot (pagetest|fpt) <domain> - Request a Pingdom pagetest report on <domain>
 
 class PingdomTools
 
