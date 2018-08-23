@@ -15,7 +15,7 @@ class PingdomTools
 
   full_page_test: (msg) ->
     my = this
-    fpt_url = 'http://api.fpt.pingdom.com/api/0.1/test?url'
+    fpt_url = 'https://fpt-api.pingdom.com/api/0.1/test?save=false&url='
     fpt_site = msg.match[1]
     msg.http("#{fpt_url}=#{fpt_site}")
       .get() (err, res, body) ->
