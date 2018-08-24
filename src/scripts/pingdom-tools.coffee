@@ -25,7 +25,7 @@ class PingdomTools
         if body
           if res = JSON.parse body
             if res.poll_state_url
-              @intervalId = setInterval () ->
+              intervals[res.test_id] = setInterval () ->
                 msg.http(res.poll_state_url)
                   .get() (err, res, poll_body) ->
                     if poll_body
@@ -47,10 +47,10 @@ class PingdomTools
                           replies.push "#{result.page_bytes} bytes in #{result.page_load_time} ms."
                         if replies.length
                           msg.send(replies.join("\n"))
-                        clearInterval @intervalId
+                        clearInterval intervals[res.test_id]
                     if err
                       msg.send('Error running Pingdom Full Page Test on ' + fpt_site)
-                      clearInterval @intervalId
+                      clearInterval intervals[res.test_id]
               , 2000
 
 client = new PingdomTools
