@@ -12,25 +12,17 @@
 //   hubot (pagetest|fpt) <domain> - Request a Pingdom pagetest report on <domain>
 
 class PingdomTools {
-  constructor(robot) {
-    let intervals = robot.brain.get('pingdom-tools-intervals')
-    if (typeof intervals === 'undefined') {
-      intervals = {}
-    }
-  }
-
   full_page_test(msg) {
-    var fpt_site, fpt_url, my;
-    fpt_url = 'https://fpt-api.pingdom.com/api/0.1/test?save=false&url=';
-    fpt_site = msg.match[2];
+    var fpt_site, fpt_url, my
+    fpt_url = 'https://fpt-api.pingdom.com/api/0.1/test?save=false&url='
+    fpt_site = msg.match[2]
     const pkg = require('../package.json')
     return msg.http(`${fpt_url}${fpt_site}`)
       .header('referer', 'https://tools.pingdom.com/')
       .header('user-agent', `hubot-pingdom-tools ${pkg.version} (${pkg.homepage})`)
       .get()((err, res, body) => {
         if (err) {
-          msg.send('Error: ' + err);
-          return;
+          msg.send('Error: ' + err)
         }
         if (body) {
           if (res = JSON.parse(body)) {
@@ -39,17 +31,17 @@ class PingdomTools {
             }
           }
         }
-    });
+    })
   }
 
   show_result(url, msg) {
-    const pkg = require('../package.json');
+    const pkg = require('../package.json')
     return msg.http(url)
       .header('referer', 'https://tools.pingdom.com/')
       .header('user-agent', `hubot-pingdom-tools ${pkg.version} (${pkg.homepage})`)
       .get()((err, res, poll_body) => {
 
-      var poll_res, replies, result, slower_than;
+      var poll_res, replies, result, slower_than
       if (poll_body) {
         poll_res = JSON.parse(poll_body)
         if (poll_res && poll_res.results && poll_res.state === 'completed') {
@@ -91,9 +83,9 @@ module.exports = function(robot) {
 
   // robot.hear(/(wrms search|search wrms( for)?) (.*)$/i, (msg) => {
   robot.respond(/(pagetest|fpt) ([^ ]*)?$/i, function(msg) {
-    return pt.full_page_test(msg);
-  });
+    return pt.full_page_test(msg)
+  })
   return robot.respond(/is ([^ ]*) (fast|slow)/i, function(msg) {
-    return pt.full_page_test(msg);
-  });
-};
+    return pt.full_page_test(msg)
+  })
+}

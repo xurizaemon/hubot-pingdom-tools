@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "chai": "*",
+    "eslint": "^5.4.0",
     "grunt-bump": "^0.8.0",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-mocha-test": "~0.7.0",
