@@ -32,7 +32,7 @@
     "sinon": "*",
     "sinon-chai": "*"
   },
-  "main": "index.coffee",
+  "main": "src/pingdom-tools.js",
   "scripts": {
     "test": "grunt test"
   }
