@@ -1,7 +1,7 @@
 {
   "name": "hubot-pingdom-tools",
   "description": "Pingdom Tools Full Page Test for Hubot ",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "Chris Burgess <chris@fuzion.co.nz>",
   "homepage": "https://github.com/xurizaemon/hubot-pingdom-tools",
   "license": "MIT",
