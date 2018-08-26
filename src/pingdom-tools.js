@@ -48,8 +48,9 @@ class PingdomTools {
           result = poll_res.results
           replies = []
           if (result.report_url) {
-            url = result.report_url.replace(/\.com\#!/, '.com/#!') + `/${msg.match[1]}`
-            replies.push(`Full page report: ${url}`)
+            // returned URL lacks initial slash?
+            result.report_url = result.report_url.replace(/\.com\#!/, '.com/#!')
+            replies.push(`${msg.match[2]} fullpage report: ${result.report_url}`)
           }
           if (result.pagespeed_score && result.load_time_percentile) {
             if (result.load_time_percentile >= 50) {
